@@ -3,8 +3,8 @@ title: "governanceRoleDefinition resource type"
 description: "Represents the role definitions. For Azure resources, it can represent Azure RBAC roles, such as Owner, Reader, Contributor, etc."
 localization_priority: Normal
 doc_type: resourcePageType
-ms.prod: ""
-author: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # governanceRoleDefinition resource type
@@ -13,15 +13,13 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-
-Represents the role definitions. For Azure resources, it can represent Azure RBAC roles, such as Owner, Reader, Contributor, etc.
-
+Represents the role definitions. For Azure AD roles, it can represent built in roles like Global Administrator and Exchange administrators as well as custom roles.
 
 ## Methods
 
 | Method		  | Return Type	|Description|
 |:---------------|:--------|:--------|
-|[List](../api/governanceroledefinition-list.md) | [governanceRoleDefinition](../resources/governanceroledefinition.md) collection |List a collection of role definitions on a resource.|
+|[List](../api/governanceroledefinition-list.md) | [governanceRoleDefinition](../resources/governanceroledefinition.md) collection |List a collection of role definitions for your Azure AD roles.|
 |[Get](../api/governanceroledefinition-get.md) | [governanceRoleDefinition](../resources/governanceroledefinition.md) |Read properties and relationships of a role definition entity specified by id.|
 
 No `POST`, `PUT`, `PATCH`, `DELETE` is supported on `roleDefinitions` entity set for now.
@@ -30,7 +28,7 @@ No `POST`, `PUT`, `PATCH`, `DELETE` is supported on `roleDefinitions` entity set
 | Property	| Type	    |Description|
 |:----|:----------|:----------|:----------|
 |id         |String     |The id of the role definition. |
-|resourceId |String     |Required. The id of the resource associated with the role definition. |
+|resourceId |String     |Required. The tenant id for this parameter. |
 |externalId   |String     |The external id of the role definition.|
 |displayName|String     |The display name of the role definition.|
 |templateId | String | |

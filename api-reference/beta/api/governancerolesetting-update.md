@@ -16,29 +16,33 @@ Namespace: microsoft.graph
 Update the properties of [governanceRoleSetting](../resources/governancerolesetting.md).
 
 ## Permissions
+
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
->**Note:** This API also requires that the requester have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource.
+>**Note:** This API also requires that the requester have at least one Active Global Administrator or Privileged Role Administrator role assignment.
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | PrivilegedAccess.Read.AzureAD |
 
 ## HTTP request
+
 <!-- { "blockType": "ignored" } -->
 ```http
-PATCH /privilegedAccess/azureResources/roleSettings/{id}
+PATCH /privilegedAccess/aadRoles/roleSettings/{id}
 ```
+
 ## Request headers
+
 | Name       | Description|
 |:-----------|:-----------|
 | Authorization  | Bearer {token}|
 | Content-type  | application/json|
 
-
 ## Request body
+
 In the request body, supply the values for [governanceRuleSettings](../resources/governancerulesetting.md) that need to be updated. 
 
 | Property	   | Type	|Description|
@@ -49,9 +53,11 @@ In the request body, supply the values for [governanceRuleSettings](../resources
 |userMemberSettings|[governanceRuleSetting](../resources/governancerulesetting.md) collection|The rule settings that are evaluated when a user tries to activate his role assignment.|
 
 ## Response
+
 If successful, this method returns a `204 NoContent` response code. It does not return anything in the response body. 
 
 ### Error codes
+
 This API returns the standard HTTP error codes. In addition, it returns the following custom error codes.
 
 |Error code     | Error message         | Details             |
@@ -60,16 +66,17 @@ This API returns the standard HTTP error codes. In addition, it returns the foll
 | 400 BadRequest| InvalidRoleSetting    | The [governanceRuleSettings](../resources/governancerulesetting.md) values provided in the request body are not valid.
 
 ## Example 
-This example updates the role setting for Custom Role 3 in the subscription Wingtip Toys - Prod.
-##### Request
 
-# [HTTP](#tab/http)
+This example updates the role setting for Global Administrator in the Contoso setting.
+
+### Request
+
 <!-- {
   "blockType": "request",
   "name": "update_governancerolesetting"
 }-->
 ```http
-PATCH https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleSettings/5fb5aef8-1081-4b8e-bb16-9d5d0385bab5
+PATCH https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleSettings/5fb5aef8-1081-4b8e-bb16-9d5d0385bab5
 Content-type: application/json
 Content-length: 350
 
@@ -82,21 +89,9 @@ Content-length: 350
    ]
 }
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/update-governancerolesetting-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/update-governancerolesetting-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+### Response
 
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/update-governancerolesetting-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
-##### Response
 <!-- {
   "blockType": "response",
   "@odata.type": "microsoft.graph.None"

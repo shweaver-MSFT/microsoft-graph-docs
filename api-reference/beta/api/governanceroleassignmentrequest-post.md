@@ -3,8 +3,8 @@ title: "Create governanceRoleAssignmentRequest"
 description: "Create a role assignment request to represent the operation you want on a role assignment. The following table lists the operations."
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # Create governanceRoleAssignmentRequest
@@ -33,7 +33,7 @@ One of the following permissions is required to call this API. To learn more, in
 
 | Permission type                        | Permissions                               |
 |:---------------------------------------|:------------------------------------------|
-| Delegated (work or school account)     | PrivilegedAccess.ReadWrite.AzureResources |
+| Delegated (work or school account)     | PrivilegedAccess.ReadWrite.AzureAD |
 | Delegated (personal Microsoft account) | Not supported.                            |
 | Application                            | Not supported. |
 
@@ -42,7 +42,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 
 ```http
-POST /privilegedAccess/azureResources/roleAssignmentRequests
+POST /privilegedAccess/aadRoles/roleAssignmentRequests
 ```
 
 ## Request headers
@@ -58,7 +58,7 @@ In the request body, supply a JSON representation of a [governanceRoleAssignment
 
 | Property         | Type                                                     | Description |
 |:-----------------|:---------------------------------------------------------|:--|
-| resourceId       | String                                                   | The ID of the resource. Required. |
+| resourceId       | String                                                   | The ID of the tenant. Required |
 | roleDefinitionId | String                                                   | The ID of the role definition. Required. |
 | subjectId        | String                                                   | The ID of the subject. Required. |
 | assignmentState  | String                                                   | The state of assignment. The value can be `Eligible` and `Active`. Required. |
@@ -90,9 +90,9 @@ The following examples show how to use this API.
 
 ### Example 1: Administrator assigns user to a role
 
-In this example, an administrator assigns user nawu@fimdev.net to the Billing Reader role.
+In this example, an administrator assigns user nawu@fimdev.net to the Global Administrator role.
 
- >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource.
+ >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` Global Administrator or Privileged Role Administrator assignment.
 
 | Property         | Type                                                     | Required                 | Value |
 |:-----------------|:---------------------------------------------------------|:-------------------------|:--|
@@ -106,15 +106,13 @@ In this example, an administrator assigns user nawu@fimdev.net to the Billing Re
 
 #### Request
 
-
-# [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
   "name": "governanceroleassignmentrequest_post"
 }-->
 
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests
 Content-type: application/json
 
 {
@@ -131,20 +129,6 @@ Content-type: application/json
   }
 }
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/governanceroleassignmentrequest-post-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/governanceroleassignmentrequest-post-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/governanceroleassignmentrequest-post-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
 
 <!-- markdownlint-disable MD024 -->
 
@@ -200,7 +184,7 @@ Content-type: application/json
 
 ### Example 2: User activates eligible role
 
-In this example, the user nawu@fimdev.net activates the eligible Billing Reader role.
+In this example, the user nawu@fimdev.net activates the eligible Global Administrator role.
 
 | Property         | Type                                                     | Required                 | Value |
 |:-----------------|:---------------------------------------------------------|:-------------------------|:--|
@@ -220,7 +204,7 @@ In this example, the user nawu@fimdev.net activates the eligible Billing Reader 
 }-->
 
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests
 Content-type: application/json
 
 {
@@ -303,7 +287,7 @@ Content-type: application/json
 
 ### Example 3: User deactivates an assigned role
 
-In this example, the user nawu@fimdev.net deactivates the active Billing Reader role.
+In this example, the user nawu@fimdev.net deactivates the active Global Administrator role.
 
 | Property         | Type                                                     | Required | Value |
 |:-----------------|:---------------------------------------------------------|:---------|:--|
@@ -323,7 +307,7 @@ In this example, the user nawu@fimdev.net deactivates the active Billing Reader 
 }-->
 
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests
 Content-type: application/json
 
 {
@@ -371,9 +355,9 @@ Content-type: application/json
 
 ### Example 4: Administrator removes user from a role
 
-In this example, an administrator removes the user nawu@fimdev.net from the Billing Reader role.
+In this example, an administrator removes the user nawu@fimdev.net from the Global Administrator role.
 
- >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource.
+ >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` Global Administrator or Privileged Role Administrator assignment.
 
 | Property         | Type                                                     | Required | Value |
 |:-----------------|:---------------------------------------------------------|:---------|:--|
@@ -393,7 +377,7 @@ In this example, an administrator removes the user nawu@fimdev.net from the Bill
 }-->
 
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests
 Content-type: application/json
 
 {
@@ -439,9 +423,9 @@ Content-type: application/json
 
 ### Example 5: Administrator updates role assignment
 
-In this example, administrators update the role assignment for the user nawu@fimdev.net to Owner.
+In this example, administrators update the role assignment for the user nawu@fimdev.net to the Billing Administrator role.
 
- >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource.
+ >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` Global Administrator or Privileged Role Administrator assignment.
 
 | Property         | Type                                                     | Required                | Value |
 |:-----------------|:---------------------------------------------------------|:------------------------|:--|
@@ -461,7 +445,7 @@ In this example, administrators update the role assignment for the user nawu@fim
 }-->
 
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests
 Content-type: application/json
 
 {
@@ -530,9 +514,9 @@ Content-type: application/json
 
 ### Example 6: Administrator extends expiring role assignment
 
-This example extends the expiring role assignment for user ANUJCUSER to API Management Service Contributor.
+This example extends the expiring role assignment for user ANUJCUSER to Exchange Administrator role.
 
- >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource.
+ >**Note:** In addition to the permission, this example requires that the requester have at least one `Active` Global Administrator or Privileged Role Administrator assignment.
 
 | Property         | Type                                                     | Required                | Value |
 |:-----------------|:---------------------------------------------------------|:------------------------|:--|
@@ -552,7 +536,7 @@ This example extends the expiring role assignment for user ANUJCUSER to API Mana
 }-->
 
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests
 Content-type: application/json
 
 {

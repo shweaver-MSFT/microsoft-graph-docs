@@ -3,8 +3,8 @@ title: "Get governanceRoleDefinition"
 description: "Retrieve the properties and relationships of a governanceRoleDefinition."
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # Get governanceRoleDefinition
@@ -20,17 +20,17 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | PrivilegedAccess.Read.AzureAD |
 
 Besides the permission scope, this API requires the requestor to have at least one role assignment on the resource, which the [governanceRoleDefinition](../resources/governanceroledefinition.md) belongs to.
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /privilegedAccess/azureResources/resources/{resourceId}/roleDefinitions/{id}
-GET /privilegedAccess/azureResources/roleDefinitions/{id}?$filter=resourceId+eq+'{resourceId}'
+GET /privilegedAccess/aadRoles/resources/{resourceId}/roleDefinitions/{id}
+GET /privilegedAccess/aadRoles/roleDefinitions/{id}?$filter=resourceId+eq+'{resourceId}'
 ```
 ## Optional query parameters
 This method does **not** support the [OData Query Parameters](/graph/query-parameters) to help customize the response.
@@ -42,20 +42,30 @@ This method does **not** support the [OData Query Parameters](/graph/query-param
 
 
 ## Request body
+
 Do not supply a request body for this method.
+
 ## Response
+
 If successful, this method returns a `200 OK` response code and [governanceRoleDefinition](../resources/governanceroledefinition.md) object in the response body.
+
 ## Example
-This example shows how to get details of role definition DNS Zone Contributor in the subscription Wingtip Toys - Prod.
+
+This example shows how to get details of role definition Global Administrator in the Contoso directory.
+
 <!-- {
   "blockType": "request",
   "name": "get_governanceroledefinition"
 }-->
-##### Request
+
+### Request
+
 ```http
-GET https://graph.microsoft.com/beta/privilegedAccess/azureResources/resources/e5e7d29d-5465-45ac-885f-4716a5ee74b5/roleDefinitions/00efc9e0-1b96-4e9a-99a3-a3df0735cf88
+GET https://graph.microsoft.com/beta/privilegedAccess/aadRoles/resources/e5e7d29d-5465-45ac-885f-4716a5ee74b5/roleDefinitions/00efc9e0-1b96-4e9a-99a3-a3df0735cf88
 ```
-##### Response
+
+### Response
+
 <!-- {
   "blockType": "response",
   "truncated": false,
@@ -70,9 +80,9 @@ Content-length: 174
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#governanceRoleDefinitions/$entity",
     "id": "00efc9e0-1b96-4e9a-99a3-a3df0735cf88",
     "resourceId": "e5e7d29d-5465-45ac-885f-4716a5ee74b5",
-    "externalId": "/subscriptions/38ab2ccc-3747-4567-b36b-9478f5602f0d/providers/Microsoft.Authorization/roleDefinitions/befefa01-2a29-4197-83a8-272ff33ce314",
+    "externalId": "/subscriptions/befefa01-2a29-4197-83a8-272ff33ce314/providers/Microsoft.Authorization/roleDefinitions/befefa01-2a29-4197-83a8-272ff33ce314",
     "templateId": "befefa01-2a29-4197-83a8-272ff33ce314",
-    "displayName": "DNS Zone Contributor"
+    "displayName": "Global Administrator"
 }
 ```
 

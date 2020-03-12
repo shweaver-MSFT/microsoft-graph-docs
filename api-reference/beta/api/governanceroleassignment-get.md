@@ -3,8 +3,8 @@ title: "Get governanceRoleAssignment"
 description: "Retrieve the properties and relationships of a governanceRoleAssignment."
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # Get governanceRoleAssignment
@@ -16,51 +16,64 @@ Namespace: microsoft.graph
 Retrieve the properties and relationships of a [governanceRoleAssignment](../resources/governanceroleassignment.md).
 
 ## Permissions
+
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | PrivilegedAccess.Read.AzureAD |
 
 ## HTTP request
-<!-- { "blockType": "ignored" } -->
-1. Get a [governanceRoleAssignment](../resources/governanceroleassignment.md) on a resource
 
-    *Note: Besides the permission scope, it requires the requestor to have at least one role assignment on the resource.* 
+<!-- { "blockType": "ignored" } -->
+Get a [governanceRoleAssignment](../resources/governanceroleassignment.md) on a resource
+
 ```http
-GET /privilegedAccess/azureResources/resources/{resourceId}/roleAssignments/{id}
-GET /privilegedAccess/azureResources/roleAssignments/{id}?$filter=resourceId+eq+'{resourceId}'
+GET /privilegedAccess/aadRoles/resources/{resourceId}/roleAssignments/{id}
+GET /privilegedAccess/aadRoles/roleAssignments/{id}?$filter=resourceId+eq+'{resourceId}'
 ```
-2. Get a [governanceRoleAssignment](../resources/governanceroleassignment.md) of mine
+
+Get a [governanceRoleAssignment](../resources/governanceroleassignment.md) of mine
+
 ```http
-GET /privilegedAccess/azureResources/roleAssignments/{id}?$filter=subjectId+eq+'{myId}'
+GET /privilegedAccess/aadRoles/roleAssignments/{id}?$filter=subjectId+eq+'{myId}'
 ```
 
 ## Optional query parameters
-This method does **not** supports [OData Query Parameters](/graph/query-parameters) other than `$filter` to help customize the response.
+
+This method only supports the `$filter` query parameter to help customize the response. For more information, see [OData Query Parameters](/graph/query-parameters).
 
 ## Request headers
+
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
 ## Request body
+
 Do not supply a request body for this method.
+
 ## Response
+
 If successful, this method returns a `200 OK` response code and [governanceRoleAssignment](../resources/governanceroleassignment.md) object in the response body.
+
 ## Example
 <!-- {
   "blockType": "request",
   "name": "get_governanceroleassignment"
 }-->
+
 Get a [governanceRoleAssignment](../resources/governanceroleassignment.md) on subscription "Wingtip Toys - Prod"
-##### Request
+
+### Request
+
 ```http
-GET https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignments/0ba78f41-ee7a-4227-adb9-1499431b2164?$filter=resourceId+eq+'e5e7d29d-5465-45ac-885f-4716a5ee74b5'
+GET https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignments/0ba78f41-ee7a-4227-adb9-1499431b2164?$filter=resourceId+eq+'e5e7d29d-5465-45ac-885f-4716a5ee74b5'
 ```
-##### Response
+
+### Response
 <!-- {
   "blockType": "response",
   "truncated": false,

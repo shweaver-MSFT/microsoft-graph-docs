@@ -3,8 +3,8 @@ title: "Update governanceRoleAssignmentRequests"
 description: "Enable administrators to update their decisions (`AdminApproved` or `AdminDenied`) on governanceRoleAssignmentRequests that are in status of `PendingAdminDecision`."
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # Update governanceRoleAssignmentRequests
@@ -16,20 +16,21 @@ Namespace: microsoft.graph
 Enable administrators to update their decisions (`AdminApproved` or `AdminDenied`) on [governanceRoleAssignmentRequests](../resources/governanceroleassignmentrequest.md) that are in status of `PendingAdminDecision`.
 
 ## Permissions
+
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
->**Note:** This API also requires that the requester have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource that the [governanceRoleAssignmentRequest](../resources/governanceroleassignmentrequest.md) belongs to. 
+>**Note:** In addition to the permission, this example requires that the requester have at least one Active Global Administrator or Privileged Role Administrator assignment. 
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | PrivilegedAccess.Read.AzureAD |
 
 ## HTTP request
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /privilegedAccess/azureResources/roleAssignmentRequests/{id}/updateRequest   
+POST /privilegedAccess/aadRoles/roleAssignmentRequests/{id}/updateRequest   
 ```
 
 ## Request headers
@@ -52,31 +53,19 @@ This method can only be applied to requests that are in status of `PendingAdminD
 If successful, this method returns a `204 No Content` response code. It does not return anything in the response body.
 
 ## Example
-##### Request
 
-# [HTTP](#tab/http)
+### Request
+
 <!-- {
   "blockType": "request",
   "name": "updaterequest_governanceroleassignmentrequest"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests/7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee/updateRequest
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests/7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee/updateRequest
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/updaterequest-governanceroleassignmentrequest-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/updaterequest-governanceroleassignmentrequest-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+### Request body
 
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/updaterequest-governanceroleassignmentrequest-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
-##### Request body
 ```json
 {
   "reason":"approve the request to extend role assignment",

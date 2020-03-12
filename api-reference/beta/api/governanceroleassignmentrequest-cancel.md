@@ -3,8 +3,8 @@ title: "Cancel governanceRoleAssignmentRequest"
 description: "Cancel a governanceRoleAssignmentRequest."
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # Cancel governanceRoleAssignmentRequest
@@ -16,24 +16,28 @@ Namespace: microsoft.graph
 Cancel a [governanceRoleAssignmentRequest](../resources/governanceroleassignmentrequest.md).
 
 ## Permissions
+
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
 |Application | Not supported. |
 
 ## Optional query parameters
+
 This method does **not** support [OData Query Parameters](/graph/query-parameters).
 
 ### HTTP request
+
 <!-- { "blockType": "ignored" } -->
 ```http
-POST /privilegedAccess/azureResources/roleAssignmentRequests/{id}/cancel
+POST /privilegedAccess/aadRoles/roleAssignmentRequests/{id}/cancel
 ```
 
 ## Request headers
+
 | Name       | Description|
 |:---------------|:----------|
 | Authorization  | Bearer {code}|
@@ -53,33 +57,21 @@ This API follows the standard of HTTP codes. Besides, the custom error codes are
 | 400 BadRequest | RequestCannotBeCancelled    | Only requests in status of `Granted`, `PendingApproval`, `PendingApprovalProvisioning` and `PendingAdminDecision` can be cancelled.
 
 ## Example
-##### Request
+
+### Request
+
 Here is an example of the request.
 
-# [HTTP](#tab/http)
 <!-- {
   "blockType": "request",
   "name": "cancel_governanceroleassignmentrequest"
 }-->
 ```http
-POST https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests/7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee/cancel
+POST https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests/7c53453e-d5a4-41e0-8eb1-32d5ec8bfdee/cancel
 ```
-# [C#](#tab/csharp)
-[!INCLUDE [sample-code](../includes/snippets/csharp/cancel-governanceroleassignmentrequest-csharp-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
 
-# [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](../includes/snippets/javascript/cancel-governanceroleassignmentrequest-javascript-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
+### Response
 
-# [Objective-C](#tab/objc)
-[!INCLUDE [sample-code](../includes/snippets/objc/cancel-governanceroleassignmentrequest-objc-snippets.md)]
-[!INCLUDE [sdk-documentation](../includes/snippets/snippets-sdk-documentation-link.md)]
-
----
-
-
-##### Response
 <!-- {
   "blockType": "response",
   "truncated": false,

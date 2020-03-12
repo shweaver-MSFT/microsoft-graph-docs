@@ -3,8 +3,8 @@ title: "List governanceRoleAssignmentRequests"
 description: "Retrieve a collection of governanceRoleAssignmentRequests. "
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # List governanceRoleAssignmentRequests
@@ -16,50 +16,56 @@ Namespace: microsoft.graph
 Retrieve a collection of [governanceRoleAssignmentRequests](../resources/governanceroleassignmentrequest.md). 
 
 ## Permissions
+
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
+|Application | PrivilegedAccess.Read.AzureAD |
 
 ## HTTP request
+
 <!-- { "blockType": "ignored" } -->
 List a collection of [governanceRoleAssignmentRequests](../resources/governanceroleassignmentrequest.md) on a resource.
     
 >**Note:** Besides the permission scope, the request requires the requestor to have at least one role assignment on the resource.
 
 ```http
-GET /privilegedAccess/azureResources/resources/{resourceId}/roleAssignmentRequests
-GET /privilegedAccess/azureResources/roleAssignmentRequests?$filter=resourceId+eq+'{resourceId}'
+GET /privilegedAccess/aadRoles/resources/{resourceId}/roleAssignmentRequests
+GET /privilegedAccess/aadRoles/roleAssignmentRequests?$filter=resourceId+eq+'{resourceId}'
 ```
 List a collection of [governanceRoleAssignmentRequests](../resources/governanceroleassignmentrequest.md) of mine.
 
 ```http
-GET /privilegedAccess/azureResources/roleAssignmentRequests?$filter=subjectId+eq+'{myId}'
+GET /privilegedAccess/aadRoles/roleAssignmentRequests?$filter=subjectId+eq+'{myId}'
 ```
 
 List a collection of [governanceRoleAssignmentRequests](../resources/governanceroleassignmentrequest.md) that are pending administrator decisions.
     
->**Note:** Besides the permission scope, this request requires the requestor to have at least one `Active` administrator role assignment (`owner` or `user access administrator`) on the resource.
+>**Note:** Besides the permission scope, this request requires the requestor to have at least one Active Global Administrator or Privileged Role Administrator assignment.
 
 ```http
-GET /privilegedAccess/azureResources/roleAssignmentRequests?$filter=status/subStatus+eq+'PendingAdminDecision'
+GET /privilegedAccess/aadRoles/roleAssignmentRequests?$filter=status/subStatus+eq+'PendingAdminDecision'
 ```
 
 ## Optional query parameters
+
 This method supports the [OData query parameters](/graph/query-parameters) to help customize the response.
 
 ## Request headers
+
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
 ## Request body
+
 Do not supply a request body for this method.
 
 ## Response
+
 If successful, this method returns a `200 OK` response code and a collection of [governanceRoleAssignmentRequest](../resources/governanceroleassignmentrequest.md) objects in the response body.
 
 ## Example
@@ -67,13 +73,17 @@ If successful, this method returns a `200 OK` response code and a collection of 
   "blockType": "request",
   "name": "get_governanceroleassignmentrequests"
 }-->
-Administrators query pending role assignment requests for subscription Wingtip Toys - Prod.
-##### Request
+
+Administrators query pending Azure AD role assignment requests in the Contoso directory.
+
+### Request
 
 ```http
-GET https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests?$filter=resourceId+eq+'e5e7d29d-5465-45ac-885f-4716a5ee74b5'
+GET https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests?$filter=resourceId+eq+'e5e7d29d-5465-45ac-885f-4716a5ee74b5'
 ```
-##### Response
+
+### Response
+
 Here is an example of the response. 
 
 >**Note:** The response object shown here might be shortened for readability. All the properties will be returned from an actual call.

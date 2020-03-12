@@ -3,8 +3,8 @@ title: "Get governanceRoleAssignmentRequest"
 description: "Get a governanceRoleAssignmentRequest. "
 localization_priority: Normal
 doc_type: apiPageType
-author: ""
-ms.prod: ""
+author: "davidmu1"
+ms.prod: "microsoft-identity-platform"
 ---
 
 # Get governanceRoleAssignmentRequest
@@ -20,45 +20,51 @@ One of the following permissions is required to call this API. To learn more, in
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|
-|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureResources  |
+|Delegated (work or school account) | PrivilegedAccess.ReadWrite.AzureAD  |
 |Delegated (personal Microsoft account) | Not supported.    |
-|Application | Not supported. |
-
-Besides the permission scope, it requires the requestor 
-*   to have at least one role assignment on the resource; or
-*   is the subject of the [governanceRoleAssignmentRequest](../resources/governanceroleassignmentrequest.md).
+|Application | PrivilegedAccess.Read.AzureAD |
 
 ## HTTP request
+
 <!-- { "blockType": "ignored" } -->
 ```http
-GET /privilegedAccess/azureResources/roleAssignmentRequests/{id}
+GET /privilegedAccess/aadRoles/roleAssignmentRequests/{id}
 ```
+
 ## Optional query parameters
+
 This method supports the [OData Query Parameters](/graph/query-parameters) to help customize the response.
 
 ## Request headers
+
 | Name      |Description|
 |:----------|:----------|
 | Authorization  | Bearer {code}|
 
 ## Request body
+
 Do not supply a request body for this method.
 
 ## Response
+
 If successful, this method returns a `200 OK` response code and a [governanceRoleAssignmentRequest](../resources/governanceroleassignmentrequest.md) object in the response body.
 
 ## Example
+
 Get a role assignment request
 <!-- {
   "blockType": "request",
   "name": "get_governanceroleassignmentrequest"
 }-->
-##### Request
+
+### Request
 
 ```http
-GET https://graph.microsoft.com/beta/privilegedAccess/azureResources/roleAssignmentRequests/e68ff888-4af5-4ccb-8b74-39156090344b
+GET https://graph.microsoft.com/beta/privilegedAccess/aadRoles/roleAssignmentRequests/e68ff888-4af5-4ccb-8b74-39156090344b
 ```
-##### Response
+
+### Response
+
 <!-- {
   "blockType": "response",
   "truncated": true,
