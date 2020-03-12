@@ -3,8 +3,8 @@ title: "privilegedRoleSummary resource type"
 description: "The statistics summary for a particular role."
 localization_priority: Normal
 doc_type: resourcePageType
-ms.prod: ""
-author: ""
+ms.prod: "microsoft-identity-platform"
+author: "davidmu1"
 ---
 
 # privilegedRoleSummary resource type

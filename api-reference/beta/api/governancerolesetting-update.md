@@ -19,7 +19,7 @@ Update the properties of [governanceRoleSetting](../resources/governancerolesett
 
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](/graph/permissions-reference).
 
->**Note:** This API also requires that the requester have at least one Active Global Administrator or Privileged Role Administrator role assignment.
+>**Note:** This API also requires that the requester have at least one `Active` Global Administrator or Privileged Role Administrator role assignment.
 
 |Permission type      | Permissions              |
 |:--------------------|:---------------------------------------------------------|

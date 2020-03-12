@@ -30,7 +30,7 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } -->
 List a collection of [governanceRoleAssignmentRequests](../resources/governanceroleassignmentrequest.md) on a resource.
     
->**Note:** Besides the permission scope, the request requires the requestor to have at least one role assignment on the resource.
+>**Note:** Besides the permission scope, this request requires the requestor to have at least one `Active` Global Administrator or Privileged Role Administrator assignment.
 
 ```http
 GET /privilegedAccess/aadRoles/resources/{resourceId}/roleAssignmentRequests

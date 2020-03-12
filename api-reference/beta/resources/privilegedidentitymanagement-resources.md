@@ -13,7 +13,7 @@ Namespace: microsoft.graph
 
 [!INCLUDE [beta-disclaimer](../../includes/beta-disclaimer.md)]
 
-You can use [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) for Azure AD roles to set up just-in-time access workflow for your built-in and custom Azure AD roles (also known as Office365 roles). You can also use it to update role settings, manage role assignments, get information regarding role definitions
+You can use [Azure Active Directory (Azure AD) Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) for Azure AD roles to set up just-in-time access workflow for your built-in and custom Azure AD roles (also known as Office365 roles). You can also use it to update role settings, manage role assignments, get information regarding role definitions.
 
 ## Common use cases for PIM and Azure resources using a REST API
 

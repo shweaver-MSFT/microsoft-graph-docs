@@ -3,8 +3,8 @@ title: "privilegedRoleSettings resource type"
 description: "Represents the settings for a privileged role."
 localization_priority: Normal
 doc_type: resourcePageType
-ms.prod: ""
-author: ""
+ms.prod: "microsoft-identity-platform"
+author: "davidmu1"
 ---
 
 # privilegedRoleSettings resource type

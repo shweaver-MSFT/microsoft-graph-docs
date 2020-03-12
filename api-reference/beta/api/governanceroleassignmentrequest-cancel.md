@@ -51,10 +51,10 @@ If successful, this method returns `204 NoContent` response code. It does not re
 
 ## Error codes
 This API follows the standard of HTTP codes. Besides, the custom error codes are shown below.
-|Error code     | Error message              | Details |
-|:--------------------| :---------------------|:--------------------|
-| 400 BadRequest | RoleAssignmentRequestNotFound | The governanceRoleAssignmentRequest does not exist in system.
-| 400 BadRequest | RequestCannotBeCancelled    | Only requests in status of `Granted`, `PendingApproval`, `PendingApprovalProvisioning` and `PendingAdminDecision` can be cancelled.
+| Error code | Error message | Details |
+|:---------- |:------------- |:------- |
+| 400 BadRequest | RoleAssignmentRequestNotFound | The governanceRoleAssignmentRequest does not exist in system. |
+| 400 BadRequest | RequestCannotBeCancelled | Only requests in status of `Granted`, `PendingApproval`, `PendingApprovalProvisioning`, and `PendingAdminDecision` can be cancelled. |
 
 ## Example
 
