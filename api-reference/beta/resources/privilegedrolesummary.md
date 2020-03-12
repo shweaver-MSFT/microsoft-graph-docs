@@ -18,9 +18,7 @@ The statistics summary for a particular role.
 
 ## Methods
 
-| Method		   | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[Get privilegedRoleSummary](../api/privilegedrolesummary-get.md) | [privilegedRoleSummary](privilegedrolesummary.md) |Read properties and relationships of privilegedRoleSummary object.|
+None.
 
 ## Properties
 | Property	   | Type	|Description|

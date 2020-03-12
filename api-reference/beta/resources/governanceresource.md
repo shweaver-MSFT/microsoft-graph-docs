@@ -18,13 +18,7 @@ Represents resources that could be managed by Privileged Identity Management (PI
 
 ## Methods
 
-| Method		  | Return Type	|Description|
-|:---------------|:--------|:----------|
-|[List](../api/governanceresource-list.md) | [governanceResource](../resources/governanceresource.md) collection|List a collection of resources the requestor has access to.|
-|[Get](../api/governanceresource-get.md) | [governanceResource](../resources/governanceresource.md) |Read properties and relationships of a resource entity specified by id.|
-|[Register](../api/governanceresource-register.md) | |Register an unmanaged Azure subscription or management group to PIM service. |
-
-No `POST`, `PUT`, `PATCH`, `DELETE` are supported on `roleDefinitions` entity set for now.
+None.
 
 ## Properties
 | Property	        |Type	      |Description|
