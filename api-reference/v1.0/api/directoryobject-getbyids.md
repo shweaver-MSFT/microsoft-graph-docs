@@ -42,7 +42,7 @@ POST /directoryObjects/getByIds
 
 ## Optional query parameters
 
-This method supports the `$search` query parameter. For more information, see the [OData Query Parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters).
+This method supports the `$select` query parameter. For more information, see the [OData Query Parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters).
 
 ## Request headers
 
