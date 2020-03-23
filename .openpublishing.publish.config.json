@@ -58,5 +58,8 @@
       "ConceptualTOC": "concepts/toc.yml",
       "ConceptualTOCUrl": "/graph/concepts/toc.json"
     }
-  ]
+  ],
+  "docs_build_engine": {
+    "name": "docfx_v3"
+  }
 }
