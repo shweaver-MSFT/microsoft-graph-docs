@@ -110,7 +110,7 @@ Content-length: 285
     "time": "2016-10-19T10:37:00Z"
   },
   "recurrence": null,
-  "uid": "iCalUId-value",
+  "iCalUId": "iCalUId-value",
   "reminderMinutesBeforeStart": 99,
   "isOnlineMeeting": true,
   "onlineMeetingProvider": "teamsForBusiness",
@@ -148,7 +148,7 @@ Content-length: 285
     "time": "2016-10-19T10:37:00Z"
   },
   "recurrence": null,
-  "uid": "iCalUId-value",
+  "iCalUId": "iCalUId-value",
   "reminderMinutesBeforeStart": 99,
   "isOnlineMeeting": true,
   "onlineMeetingProvider": "teamsForBusiness",
