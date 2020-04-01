@@ -152,7 +152,7 @@ items:
             href: data-connect-tips.md
       - name: Devices and apps
         items:
-          - name: Cloud printing
+          - name: Cloud printing (preview)
             href: universal-print-concept-overview.md
           - name: Corporate management
             href: intune-concept-overview.md
