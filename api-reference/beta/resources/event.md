@@ -111,7 +111,7 @@ Here is a JSON representation of the resource
 |createdDateTime|DateTimeOffset|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'`|
 |end|[DateTimeTimeZone](datetimetimezone.md)|The date, time, and time zone that the event ends. By default, the end time is in UTC.|
 |hasAttachments|Boolean|Set to true if the event has attachments.|
-|iCalUId|String|A unique identifier, as defined in [RFC5545](https://tools.ietf.org/html/rfc5545#section-3.8.4.7), that is shared by all instances of an event across different calendars. Read-only.|
+|iCalUId|String|A unique identifier that is shared by instances of the same event across one or more calendars, as defined in [RFC5545](https://tools.ietf.org/html/rfc5545#section-3.8.4.7). For example, an imported iCal meeting might have an iCalUId value of 19rh93h5t893h5v@calendar.iCloud.com. For recurring events, the value is the same for the series master and all of its occurrences including exceptions.|
 |id|String| Unique identifier for the event. [!INCLUDE [outlook-beta-id](../../includes/outlook-beta-id.md)] Read-only. |
 |importance|String|The importance of the event. Possible values are: `low`, `normal`, `high`.|
 |isAllDay|Boolean|Set to true if the event lasts all day. If true, regardless of whether it's a single-day or multi-day event, start and end time must be set to midnight and be in the same time zone.|
