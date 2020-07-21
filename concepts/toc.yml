@@ -500,6 +500,8 @@ items:
             href: toolkit/style.md
           - name: Templating components
             href: toolkit/templates.md
+          - name: Scoped components
+            href: toolkit/scoped.md
       - name: Resources
         expanded: true
         items:
